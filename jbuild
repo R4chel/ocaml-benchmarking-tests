@@ -1,0 +1,8 @@
+(jbuild_version 1)
+
+(executables
+  ((names (tuple_vs_record))
+  (libraries (core
+              core_bench
+  ))
+)) 
