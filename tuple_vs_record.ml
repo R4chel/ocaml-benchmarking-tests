@@ -17,7 +17,6 @@ let bench tests =
   Bench.bench ~run_config tests
 ;;
 
-
 let tests =
   let t1 = Time.of_string "2017-05-25 12:46:15.232-4:00" in 
   [ Bench.Test.create
@@ -33,6 +32,3 @@ let tests =
   ]
 ;;
 
-let () =
-  bench tests
-;;
