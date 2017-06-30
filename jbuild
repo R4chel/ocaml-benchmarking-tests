@@ -4,5 +4,8 @@
   ((names (tests))
   (libraries (core
               core_bench
+              expect_test_helpers
+              ppx_expect
   ))
+  (preprocess (pps (ppx_jane ppx_expect -inline-test-lib ppx_driver.runner)))
 )) 

@@ -30,17 +30,31 @@ let factorial_5 n =
   !counter
 ;;
 
-let fun_to_test f name n =
+let fun_to_bench f name n =
   Bench.Test.create ~name (fun () -> ignore (f n : int))
 ;;
 
 
+let%expect_test "factorial_1" =
+  let result = factorial_1 5 in
+  Out_channel.output_string stdout (Int.to_string result);
+  [%expect {| 121 |}]
+;;
+
+
 let tests =
-    [ fun_to_test factorial_1 "factorial_1" 1_000
-    ; fun_to_test factorial_2 "factorial_2" 1_000
-    ; fun_to_test factorial_3 "factorial_3" 1_000
-    ; fun_to_test factorial_4 "factorial_4" 1_000
-    ; fun_to_test factorial_5 "factorial_5" 1_000
+    [ fun_to_bench factorial_1 "factorial_1" 1_000
+    ; fun_to_bench factorial_2 "factorial_2" 1_000
+    ; fun_to_bench factorial_3 "factorial_3" 1_000
+    ; fun_to_bench factorial_4 "factorial_4" 1_000
+    ; fun_to_bench factorial_5 "factorial_5" 1_000
     ]
 
 ;;
+
+let () =
+  assert (factorial_1 5 = 120);
+  assert (factorial_2 5 = 120);
+  assert (factorial_3 5 = 120);
+  assert (factorial_4 5 = 120);
+  assert (factorial_5 5 = 120);
