@@ -26,7 +26,16 @@ let factorial_4 n =
   !counter
 ;;
 
+let fun_to_test f name n =
+  Bench.Test.create ~name (fun () -> ignore (f n : int))
+;;
 
 
 let tests =
-  []
+    [ fun_to_test factorial_1 "factorial_1" 1_000_000
+    ; fun_to_test factorial_2 "factorial_2" 1_000_000
+    ; fun_to_test factorial_3 "factorial_3" 1_000_000
+    ; fun_to_test factorial_4 "factorial_4" 1_000_000
+    ]
+
+;;
