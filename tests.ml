@@ -14,8 +14,9 @@ let bench tests =
 let () = 
   let tests =
     (* Tuple_vs_record.tests *)
-    Factorial.tests @
-    Cons_vs_append.tests
+    (* Factorial.tests @ *)
+    (* Cons_vs_append.tests *)
+    Pattern_vs_if.tests
 
   in
   bench tests
